@@ -1,0 +1,28 @@
+/* Tailwind-like colors for our Footer */
+.bg-gray-900 { background-color: #111827 !important; }
+.bg-gray-800 { background-color: #1f2937 !important; }
+.text-gray-300 { color: #d1d5db !important; }
+.text-gray-400 { color: #9ca3af !important; }
+.text-yellow-400 { color: #fbbf24 !important; }
+.border-gray-800 { border-color: #1f2937 !important; }
+
+/* Hover effects */
+.hover\:text-yellow-400:hover {
+  color: #fbbf24 !important;
+}
+
+/* Font sizes & weights */
+.text-4xl { font-size: 3rem; line-height: 1; }
+.fw-extrabold { font-weight: 900 !important; }
+.fs-5 { font-size: 1.125rem !important; }
+.fs-6 { font-size: 1rem !important; }
+.lh-lg { line-height: 2 !important; }
+
+/* Spacing */
+.space-y-3 > * + * { margin-top: 0.75rem; }
+.space-y-4 > * + * { margin-top: 1rem; }
+
+/* Transition */
+.transition {
+  transition: color 0.3s ease;
+}

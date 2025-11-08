@@ -1,0 +1,50 @@
+<!-- src/app/components/navbar/navbar.component.html -->
+<nav class="fixed-top z-3 transition-all duration-500" dir="rtl">
+  <div class="container px-4 py-4">
+    <div class="d-flex justify-content-between align-items-center">
+      <!-- Logo -->
+      <div class="d-flex align-items-center gap-3">
+        <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl d-flex align-items-center justify-content-center shadow-lg" style="width: 48px; height: 48px;">
+          <i class="bi bi-wrench text-white fs-3"></i>
+        </div>
+        <span class="fs-3 fw-bold text-primary">فلتره</span>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="d-none d-lg-flex gap-5">
+        <a href="#home" class="text-dark fw-semibold fs-5 text-decoration-none hover-blue">الرئيسية</a>
+        <a href="#features" class="text-dark fw-semibold fs-5 text-decoration-none hover-blue">المميزات</a>
+        <a href="#how-it-works" class="text-dark fw-semibold fs-5 text-decoration-none hover-blue">كيف يعمل</a>
+        <a href="#testimonials" class="text-dark fw-semibold fs-5 text-decoration-none hover-blue">آراء العملاء</a>
+        <a href="#contact" class="text-dark fw-semibold fs-5 text-decoration-none hover-blue">تواصل معنا</a>
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-flex align-items-center gap-3">
+        <button class="btn btn-outline-primary d-none d-sm-block fw-bold" (click)="login()">
+          تسجيل الدخول
+        </button>
+        <button class="btn btn-primary btn-lg fw-bold shadow-lg px-4 py-3 rounded-pill gradient-btn" (click)="freeTrial()">
+          جرّب مجاناً
+          <i class="bi bi-chevron-left ms-2"></i>
+        </button>
+        <button class="d-lg-none text-primary fs-2" (click)="mobileMenuOpen = !mobileMenuOpen">
+          <i class="bi" [class.bi-list]="!mobileMenuOpen" [class.bi-x-lg]="mobileMenuOpen"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div *ngIf="mobileMenuOpen" class="d-lg-none mt-4 bg-white rounded-4 shadow-2xl p-4 border border-light">
+      <a href="#home" class="d-block py-3 fs-4 fw-bold border-bottom hover-blue">الرئيسية</a>
+      <a href="#features" class="d-block py-3 fs-4 fw-bold border-bottom hover-blue">المميزات</a>
+      <a href="#how-it-works" class="d-block py-3 fs-4 fw-bold border-bottom hover-blue">كيف يعمل</a>
+      <a href="#testimonials" class="d-block py-3 fs-4 fw-bold border-bottom hover-blue">آراء العملاء</a>
+      <a href="#contact" class="d-block py-3 fs-4 fw-bold hover-blue">تواصل معنا</a>
+      <button class="btn btn-primary w-100 mt-4 py-3" (click)="login()">تسجيل الدخول</button>
+    </div>
+  </div>
+
+  <!-- Blur Background -->
+  <div id="navbar-bg" class="position-absolute top-0 start-0 end-0 bottom-0 bg-white opacity-0 transition-opacity duration-500 pointer-events-none" style="backdrop-filter: blur(12px);"></div>
+</nav>

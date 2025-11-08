@@ -1,0 +1,56 @@
+<section id="contact" class="position-relative py-5 text-white" dir="rtl"
+    style="background: linear-gradient(135deg, #6a11cb, #2575fc);">
+    
+    <!-- Overlay for glass effect -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-25"></div>
+
+    <div class="container position-relative z-2">
+        <h2 class="text-center display-4 fw-bold mb-5">جاهز تبدأ؟</h2>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <form (ngSubmit)="onSubmit()"
+                    class="p-5 rounded-4 shadow-lg border border-white border-opacity-25 bg-white bg-opacity-10 backdrop-blur"
+                    style="backdrop-filter: blur(15px);">
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <label class="form-label fs-5 fw-semibold mb-2">الاسم</label>
+                            <input [(ngModel)]="formData.name" name="name" type="text"
+                                class="form-control form-control-lg rounded-pill py-3"
+                                [class.is-invalid]="errors.name"
+                                placeholder="اسمك الكامل">
+                            <div class="invalid-feedback text-warning mt-2">{{ errors.name }}</div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fs-5 fw-semibold mb-2">رقم الهاتف</label>
+                            <input [(ngModel)]="formData.phone" name="phone" type="tel"
+                                class="form-control form-control-lg rounded-pill py-3"
+                                [class.is-invalid]="errors.phone"
+                                placeholder="01234567890">
+                            <div class="invalid-feedback text-warning mt-2">{{ errors.phone }}</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label class="form-label fs-5 fw-semibold mb-2">رسالتك</label>
+                        <textarea [(ngModel)]="formData.message" name="message" rows="6"
+                            class="form-control form-control-lg rounded-3"
+                            [class.is-invalid]="errors.message"
+                            placeholder="عايز تعرف إيه؟"></textarea>
+                        <div class="invalid-feedback text-warning mt-2">{{ errors.message }}</div>
+                    </div>
+
+                    <div class="text-center mt-5">
+                        <button type="submit"
+                            class="btn btn-gradient btn-lg fw-bold px-5 py-3 rounded-pill shadow-lg"
+                            style="background: linear-gradient(90deg, #ff6a00, #ee0979); border:none;">
+                            ابعت رسالتك دلوقتي
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

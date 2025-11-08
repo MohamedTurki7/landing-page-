@@ -1,0 +1,15 @@
+// src/app/components/navbar/navbar.component.scss
+.gradient-btn {
+  background: linear-gradient(to right, #2563eb, #1d4ed8);
+  transition: all 0.3s ease;
+}
+
+.gradient-btn:hover {
+  background: linear-gradient(to right, #1d4ed8, #1e40af);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 20px 25px -5px rgba(30, 64, 175, 0.3);
+}
+
+.hover-blue:hover {
+  color: #2563eb !important;
+}
