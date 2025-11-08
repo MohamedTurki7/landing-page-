@@ -1,4 +1,3 @@
-// src/app/components/navbar/navbar.component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -22,35 +21,35 @@ export class Navbar implements OnInit, OnDestroy {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
+  // التعامل مع التمرير لتغيير لون الخلفية
   private handleScroll = () => {
-    const navbar = document.querySelector('nav');
-    const navbarBg = document.getElementById('navbar-bg');
-    
+    const navbar = document.querySelector('nav.navbar');
     if (window.scrollY > 50) {
-      navbar?.classList.add('bg-white', 'shadow-xl', 'border-bottom', 'border-light-subtle');
-      navbarBg?.classList.replace('opacity-0', 'opacity-100');
+      navbar?.classList.add('scrolled');
     } else {
-      navbar?.classList.remove('bg-white', 'shadow-xl', 'border-bottom', 'border-light-subtle');
-      navbarBg?.classList.replace('opacity-100', 'opacity-0');
+      navbar?.classList.remove('scrolled');
     }
   };
 
   private setupScrollEffect(): void {
     window.addEventListener('scroll', this.handleScroll);
-    this.handleScroll(); // Call once on load
+    this.handleScroll();
   }
 
+  // Smooth scroll لجميع الأقسام
   private setupSmoothScroll(): void {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', (e) => {
         e.preventDefault();
         const href = anchor.getAttribute('href');
-        if (href === '#') return;
-        
-        const target = document.querySelector(href!);
+        if (!href || href === '#') return;
+
+        const target = document.querySelector(href);
         if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-          this.mobileMenuOpen = false;
+          const yOffset = -80; // تعويض ارتفاع النافبار
+          const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+          this.mobileMenuOpen = false; // غلق القائمة على الموبايل
         }
       });
     });

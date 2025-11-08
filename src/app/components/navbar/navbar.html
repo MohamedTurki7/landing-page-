@@ -1,50 +1,48 @@
-<!-- src/app/components/navbar/navbar.component.html -->
-<nav class="fixed-top z-3 transition-all duration-500" dir="rtl">
-  <div class="container px-4 py-4">
-    <div class="d-flex justify-content-between align-items-center">
-      <!-- Logo -->
-      <div class="d-flex align-items-center gap-3">
-        <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl d-flex align-items-center justify-content-center shadow-lg" style="width: 48px; height: 48px;">
-          <i class="bi bi-wrench text-white fs-3"></i>
-        </div>
-        <span class="fs-3 fw-bold text-primary">فلتره</span>
+<nav class="navbar fixed-top w-100 z-50">
+  <div class="container d-flex justify-content-between align-items-center ">
+    
+    <!-- Logo -->
+    <div class="d-flex align-items-center gap-3">
+      <div class="logo-icon d-flex align-items-center justify-content-center shadow-lg">
+        <i class="bi bi-wrench text-white fs-3"></i>
       </div>
+      <span class="fs-3 fw-bold text-primary">فلتره</span>
+    </div>
 
-      <!-- Desktop Menu -->
-      <div class="d-none d-lg-flex gap-5">
-        <a href="#home" class="text-dark fw-semibold fs-5 text-decoration-none hover-blue">الرئيسية</a>
-        <a href="#features" class="text-dark fw-semibold fs-5 text-decoration-none hover-blue">المميزات</a>
-        <a href="#how-it-works" class="text-dark fw-semibold fs-5 text-decoration-none hover-blue">كيف يعمل</a>
-        <a href="#testimonials" class="text-dark fw-semibold fs-5 text-decoration-none hover-blue">آراء العملاء</a>
-        <a href="#contact" class="text-dark fw-semibold fs-5 text-decoration-none hover-blue">تواصل معنا</a>
-      </div>
+    <!-- Desktop Menu -->
+    <div class="d-none d-lg-flex gap-4 align-items-center">
+      <a href="#home" class="nav-link">الرئيسية</a>
+      <a href="#features" class="nav-link">المميزات</a>
+      <a href="#how-it-works" class="nav-link">كيف يعمل</a>
+      <a href="#screenshots" class="nav-link">صور النظام</a>
+      <a href="#pricing" class="nav-link">الأسعار</a>
+      <a href="#testimonials" class="nav-link">آراء العملاء</a>
+      <a href="#faq" class="nav-link">الأسئلة الشائعة</a>
+      <a href="#contact" class="nav-link">تواصل معنا</a>
+    </div>
 
-      <!-- Buttons -->
-      <div class="d-flex align-items-center gap-3">
-        <button class="btn btn-outline-primary d-none d-sm-block fw-bold" (click)="login()">
-          تسجيل الدخول
-        </button>
-        <button class="btn btn-primary btn-lg fw-bold shadow-lg px-4 py-3 rounded-pill gradient-btn" (click)="freeTrial()">
-          جرّب مجاناً
-          <i class="bi bi-chevron-left ms-2"></i>
-        </button>
-        <button class="d-lg-none text-primary fs-2" (click)="mobileMenuOpen = !mobileMenuOpen">
-          <i class="bi" [class.bi-list]="!mobileMenuOpen" [class.bi-x-lg]="mobileMenuOpen"></i>
-        </button>
-      </div>
+    <!-- Buttons & Mobile Toggle -->
+    <div class="d-flex align-items-center gap-3">
+      <button class="btn btn-outline-primary d-none d-sm-block fw-bold px-4" (click)="login()">تسجيل الدخول</button>
+      <button class="btn gradient-btn btn-lg fw-bold shadow-lg px-5 py-3 rounded-pill" (click)="freeTrial()">
+        جرّب مجاناً <i class="bi bi-chevron-left ms-2"></i>
+      </button>
+      <button class="d-lg-none toggle-btn fs-2 text-primary" (click)="mobileMenuOpen = !mobileMenuOpen">
+        <i class="bi" [class.bi-list]="!mobileMenuOpen" [class.bi-x-lg]="mobileMenuOpen"></i>
+      </button>
     </div>
 
     <!-- Mobile Menu -->
-    <div *ngIf="mobileMenuOpen" class="d-lg-none mt-4 bg-white rounded-4 shadow-2xl p-4 border border-light">
-      <a href="#home" class="d-block py-3 fs-4 fw-bold border-bottom hover-blue">الرئيسية</a>
-      <a href="#features" class="d-block py-3 fs-4 fw-bold border-bottom hover-blue">المميزات</a>
-      <a href="#how-it-works" class="d-block py-3 fs-4 fw-bold border-bottom hover-blue">كيف يعمل</a>
-      <a href="#testimonials" class="d-block py-3 fs-4 fw-bold border-bottom hover-blue">آراء العملاء</a>
-      <a href="#contact" class="d-block py-3 fs-4 fw-bold hover-blue">تواصل معنا</a>
-      <button class="btn btn-primary w-100 mt-4 py-3" (click)="login()">تسجيل الدخول</button>
+    <div *ngIf="mobileMenuOpen" class="mobile-menu d-lg-none mt-3 p-4 rounded-4 shadow-lg bg-white border border-light-subtle">
+      <a href="#home" class="mobile-link">الرئيسية</a>
+      <a href="#features" class="mobile-link">المميزات</a>
+      <a href="#how-it-works" class="mobile-link">كيف يعمل</a>
+      <a href="#screenshots" class="mobile-link">صور النظام</a>
+      <a href="#pricing" class="mobile-link">الأسعار</a>
+      <a href="#testimonials" class="mobile-link">آراء العملاء</a>
+      <a href="#faq" class="mobile-link">الأسئلة الشائعة</a>
+      <a href="#contact" class="mobile-link">تواصل معنا</a>
+      <button class="btn btn-primary w-100 mt-4 py-3 fw-bold" (click)="login()">تسجيل الدخول</button>
     </div>
   </div>
-
-  <!-- Blur Background -->
-  <div id="navbar-bg" class="position-absolute top-0 start-0 end-0 bottom-0 bg-white opacity-0 transition-opacity duration-500 pointer-events-none" style="backdrop-filter: blur(12px);"></div>
 </nav>

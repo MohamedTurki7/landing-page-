@@ -11,6 +11,9 @@ import { HowItWorks } from './components/how-it-works/how-it-works';
 import { Testimonials } from './components/testimonials/testimonials';
 import { Contact } from './components/contact/contact';
 import { Footer } from './components/footer/footer';
+import { Screenshots } from './components/screenshots/screenshots';
+import { Pricing } from './components/pricing/pricing';
+import { Faq } from './components/faq/faq';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { Footer } from './components/footer/footer';
         HowItWorks,
         Testimonials,
         Contact,
-        Footer
+        Footer,
+        Screenshots,
+        Pricing,
+        Faq
 
   ],
   imports: [
@@ -40,7 +46,10 @@ import { Footer } from './components/footer/footer';
         HowItWorks,
         Testimonials,
         Contact,
-        Footer
+        Footer,
+        Screenshots,
+        Pricing,
+        Faq
 
   ]
 })
