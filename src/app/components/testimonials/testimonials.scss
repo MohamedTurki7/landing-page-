@@ -1,24 +1,27 @@
-// src/app/components/testimonials/testimonials.component.scss
 .hover-card {
-  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-  border: 2px solid transparent;
+  transition: all 0.4s ease;
 }
 
 .hover-card:hover {
-  transform: translateY(-20px);
-  box-shadow: 0 35px 70px -12px rgba(250, 204, 21, 0.4) !important;
-  border-color: #fbbf24;
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+.bi-star-fill {
+  transition: transform 0.2s ease;
 }
 
 .hover-card:hover .bi-star-fill {
-  animation: starPulse 1.5s infinite;
+  transform: scale(1.2);
+  color: #fbbf24 !important;
 }
 
-@keyframes starPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
+/* نصوص هادئة وواضحة */
+p {
+  line-height: 1.8;
 }
 
-.transition-all {
-  transition: all 0.4s ease;
+/* العناوين */
+h2 span {
+  color: #2563eb; /* أزرق هادئ */
 }

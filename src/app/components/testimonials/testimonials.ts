@@ -1,4 +1,3 @@
-// src/app/components/testimonials/testimonials.component.ts
 import { Component } from '@angular/core';
 
 interface Testimonial {
@@ -10,25 +9,25 @@ interface Testimonial {
 @Component({
   selector: 'app-testimonials',
   templateUrl: './testimonials.html',
-  standalone: false,
-  styleUrls: ['./testimonials.scss']
+  styleUrls: ['./testimonials.scss'],
+  standalone: false
 })
 export class Testimonials {
   testimonials: Testimonial[] = [
     {
-    name: 'أحمد السيد',
-    city: 'القاهرة',
-    text: 'موقع الفلترة وفّر عليا ساعات طويلة في متابعة كل الطلبات والموردين، كل شيء واضح وسهل الاستخدام.'
-  },
-  {
-    name: 'محمد علي',
-    city: 'الإسكندرية',
-    text: 'من خلال التنبيهات اللحظية ومتابعة المخزون، قدرت أتخذ قرارات أسرع وأنظم شغلي بشكل احترافي.'
-  },
-  {
-    name: 'فاطمة حسن',
-    city: 'الجيزة',
-    text: 'واجهة الموقع سهلة ومليانة كل التفاصيل اللي أحتاجها لمتابعة العملاء والمنتجات بشكل كامل.'
-  }
+      name: 'أحمد السيد',
+      city: 'القاهرة',
+      text: 'ساعدنا النظام في تنظيم سير العمل ومتابعة الأداء بدقة، مما جعل فريقنا أكثر إنتاجية وكفاءة.'
+    },
+    {
+      name: 'محمد علي',
+      city: 'الإسكندرية',
+      text: 'واجهة الاستخدام واضحة وسلسة، وتجربة التعامل مع النظام كانت ممتازة من أول يوم.'
+    },
+    {
+      name: 'فاطمة حسن',
+      city: 'الجيزة',
+      text: 'خدمة الدعم الفني رائعة، والنتائج التي حصلنا عليها فاقت التوقعات. أنصح به بشدة.'
+    }
   ];
 }
