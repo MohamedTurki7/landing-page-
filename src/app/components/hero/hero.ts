@@ -5,18 +5,20 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.html',
-    standalone: false,
+  standalone: false,
 
-  styleUrls: ['./hero.scss']
+  styleUrls: ['./hero.scss'],
 })
 export class Hero {
   constructor(private router: Router) {}
 
   freeTrial(): void {
-    alert("تم إرسال طلب التجربة المجانية!\nسيتم التواصل معك خلال 24 ساعة");
+    alert('تم إرسال طلب التجربة المجانية!\nسيتم التواصل معك خلال 24 ساعة');
   }
 
+  loginUrl = 'http://localhost:5173/login';
+
   login(): void {
-    this.router.navigate(['/login']);
+    window.location.href = this.loginUrl;
   }
 }

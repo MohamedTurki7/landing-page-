@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
   selector: 'app-navbar',
   standalone: false,
   templateUrl: './navbar.html',
-  styleUrls: ['./navbar.scss']
+  styleUrls: ['./navbar.scss'],
 })
 export class Navbar implements OnInit, OnDestroy {
   mobileMenuOpen = false;
@@ -38,7 +38,7 @@ export class Navbar implements OnInit, OnDestroy {
 
   // Smooth scroll لجميع الأقسام
   private setupSmoothScroll(): void {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener('click', (e) => {
         e.preventDefault();
         const href = anchor.getAttribute('href');
@@ -55,11 +55,13 @@ export class Navbar implements OnInit, OnDestroy {
     });
   }
 
+  loginUrl = 'http://localhost:5173/login';
+
   login(): void {
-    this.router.navigate(['/login']);
+    window.location.href = this.loginUrl;
   }
 
   freeTrial(): void {
-    alert("تم إرسال طلب التجربة المجانية!\nسيتم التواصل معك خلال 24 ساعة");
+    alert('تم إرسال طلب التجربة المجانية!\nسيتم التواصل معك خلال 24 ساعة');
   }
 }
