@@ -1,22 +1,23 @@
 // src/app/components/hero/hero.component.ts
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.html',
-    standalone: false,
+  standalone: false,
 
-  styleUrls: ['./hero.scss']
+  styleUrls: ['./hero.scss'],
 })
 export class Hero {
   constructor(private router: Router) {}
 
-  freeTrial(): void {
-    alert("تم إرسال طلب التجربة المجانية!\nسيتم التواصل معك خلال 24 ساعة");
+  login(): void {
+    window.location.href = `${environment.APP_URL}/login`;
   }
 
-  login(): void {
-    this.router.navigate(['/login']);
+  freeTrial(): void {
+    window.location.href = `${environment.APP_URL}/signup`;
   }
 }

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-pricing',
   standalone: false,
   templateUrl: './pricing.html',
-  styleUrls: ['./pricing.scss']
+  styleUrls: ['./pricing.scss'],
 })
 export class Pricing {
   plans = [
@@ -14,7 +15,7 @@ export class Pricing {
       period: 'جنيه/شهر',
       save: '',
       features: ['كل المميزات', 'تحديثات مجانية', 'دعم 24/7', 'نسخ احتياطي يومي'],
-      popular: false
+      popular: false,
     },
     {
       name: 'نص سنوي',
@@ -22,19 +23,26 @@ export class Pricing {
       period: 'جنيه/6 شهور',
       save: 'توفير 17%',
       features: ['كل المميزات', 'تحديثات مجانية', 'دعم 24/7', 'نسخ احتياطي يومي', 'تدريب مجاني'],
-      popular: true
+      popular: true,
     },
     {
       name: 'سنوي',
       price: '4,499',
       period: 'جنيه/سنة',
       save: 'توفير 25%',
-      features: ['كل المميزات', 'تحديثات مجانية', 'دعم 24/7', 'نسخ احتياطي يومي', 'تدريب مجاني', 'أولوية في الدعم'],
-      popular: false
-    }
+      features: [
+        'كل المميزات',
+        'تحديثات مجانية',
+        'دعم 24/7',
+        'نسخ احتياطي يومي',
+        'تدريب مجاني',
+        'أولوية في الدعم',
+      ],
+      popular: false,
+    },
   ];
 
-  freeTrial() {
-    alert("تم إرسال طلب التجربة المجانية 14 يوم!\nهنتواصل معاك خلال ساعة 🚀");
+  freeTrial(): void {
+    window.location.href = `${environment.APP_URL}/signup`;
   }
 }

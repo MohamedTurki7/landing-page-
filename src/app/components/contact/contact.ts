@@ -1,24 +1,18 @@
-// src/app/components/contact/contact.component.ts
 import { Component } from '@angular/core';
+import emailjs from '@emailjs/browser';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-contact',
-  standalone: false, // Make the component standalones
+  standalone: false,
   templateUrl: './contact.html',
-  styleUrls: ['./contact.scss']
+  styleUrls: ['./contact.scss'],
 })
-export class Contact{
-  formData = {
-    name: '',
-    phone: '',
-    message: ''
-  };
-
-  errors = {
-    name: '',
-    phone: '',
-    message: ''
-  };
+export class Contact {
+  formData = { name: '', phone: '', message: '' };
+  errors = { name: '', phone: '', message: '' };
+  toastVisible = false;
+  toastMessage = '';
 
   onSubmit(): void {
     this.resetErrors();
@@ -48,11 +42,37 @@ export class Contact{
 
     if (hasError) return;
 
-    alert("تم إرسال رسالتك بنجاح!\nشكرًا لتواصلك معنا، هنرد عليك في أقرب وقت 🚀");
-    this.formData = { name: '', phone: '', message: '' };
+    const templateParams = {
+      name: this.formData.name,
+      phone: this.formData.phone,
+      message: this.formData.message,
+      to_email: 'khedmaanas24247893@gmail.com',
+    };
+
+    emailjs
+      .send(
+        environment.emailServiceId,
+        environment.emailTemplateId,
+        templateParams,
+        environment.emailPublicKey
+      )
+
+      .then(() => {
+        this.showToast('✅ تم إرسال رسالتك بنجاح! سنرد عليك قريبًا 💬');
+        this.formData = { name: '', phone: '', message: '' };
+      })
+      .catch(() => {
+        this.showToast('❌ حدث خطأ أثناء الإرسال. حاول لاحقًا.');
+      });
   }
 
   private resetErrors(): void {
     this.errors = { name: '', phone: '', message: '' };
+  }
+
+  private showToast(message: string): void {
+    this.toastMessage = message;
+    this.toastVisible = true;
+    setTimeout(() => (this.toastVisible = false), 3000);
   }
 }

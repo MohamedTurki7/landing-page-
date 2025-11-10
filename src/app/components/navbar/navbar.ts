@@ -1,11 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-navbar',
   standalone: false,
   templateUrl: './navbar.html',
-  styleUrls: ['./navbar.scss']
+  styleUrls: ['./navbar.scss'],
 })
 export class Navbar implements OnInit, OnDestroy {
   mobileMenuOpen = false;
@@ -21,7 +22,6 @@ export class Navbar implements OnInit, OnDestroy {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
-  // التعامل مع التمرير لتغيير لون الخلفية
   private handleScroll = () => {
     const navbar = document.querySelector('nav.navbar');
     if (window.scrollY > 50) {
@@ -36,9 +36,8 @@ export class Navbar implements OnInit, OnDestroy {
     this.handleScroll();
   }
 
-  // Smooth scroll لجميع الأقسام
   private setupSmoothScroll(): void {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener('click', (e) => {
         e.preventDefault();
         const href = anchor.getAttribute('href');
@@ -46,20 +45,20 @@ export class Navbar implements OnInit, OnDestroy {
 
         const target = document.querySelector(href);
         if (target) {
-          const yOffset = -80; // تعويض ارتفاع النافبار
+          const yOffset = -80;
           const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
           window.scrollTo({ top: y, behavior: 'smooth' });
-          this.mobileMenuOpen = false; // غلق القائمة على الموبايل
+          this.mobileMenuOpen = false; 
         }
       });
     });
   }
 
   login(): void {
-    this.router.navigate(['/login']);
+    window.location.href = `${environment.APP_URL}/login`;
   }
 
   freeTrial(): void {
-    alert("تم إرسال طلب التجربة المجانية!\nسيتم التواصل معك خلال 24 ساعة");
+    window.location.href = `${environment.APP_URL}/signup`;
   }
 }
